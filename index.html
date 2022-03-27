@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <main>
+        <h1>Quick Tip</h1>
+    
+    <section>
+        <div class="bill">
+            <label for="">Bill</label>
+            <input type="number" value="" id="billvalue" placeholder="Your bill" oninput="update()" />
+        </div>
+        <div>
+            <div class="space-between">
+                <span>Select tip</span>
+                <label for="" id="tippercentage"></label>
+            </div>
+            <input type="range" value="" id="yourtip" placeholder="tip percentage" oninput="update()" class="range" />
+        </div>
+        <div class="space-between">
+            <span>Tip</span>
+            <span id="tipvalue"></span>
+        </div>
+        <hr>
+        <div class="space-between">
+            <span>Total</span>
+            <span id="Totalwith"></span>
+        </div>
+    </section>
+    <section>
+        <div>
+            <div class="space-between">
+            <span>Split</span>
+            <span id="persons"></span>
+            </div>
+            <input type="range" min="1" max="10" id="personrange" oninput="update()" />
+        </div>
+        <div class="space-between">
+            <span>
+                Bill each
+            </span>
+            <span id="billeach">
+
+            </span>
+        </div >
+        <div class="space-between">
+            <span>
+                Tip each
+            </span>
+            <span id="tipeach"></span>
+        </div>
+    </section>
+</main> 
+<script>
+    function money(value){
+        
+        return "Rs."+value;
+    }
+    function split1(value){
+        if(value === "1")
+            return value +"person";
+        
+        else 
+        return value+ " " + "people";
+    }
+    function update(){
+        let bill=Number(document.getElementById('billvalue').value);
+        let tip=Number(document.getElementById('yourtip').value);
+        let range=Number(document.getElementById('personrange').value);
+        //console.log(typeof range);
+
+        //console.log(tip,bill);
+        let tip1=bill*(tip/100);
+        let total1=tip1+bill;
+        let billeach=total1/range;
+        let tipeach=tip1/range;
+        document.getElementById('tipvalue').innerHTML=tip1;
+        document.getElementById('Totalwith').innerHTML=money(total1);
+        document.getElementById('persons').innerHTML=split1(range);
+        document.getElementById('billeach').innerHTML=money(billeach);
+        document.getElementById('tipeach').innerHTML=tipeach;
+        document.getElementById('tippercentage').innerHTML=tip+"%";
+
+    }
+</script>
+</body>
+</html>

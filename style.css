@@ -1,0 +1,44 @@
+html{
+    font-size: 30px;
+}
+main{
+    background: linear-gradient(#0bd569,#09d1dd);
+    margin: 5px;
+    border-radius: 10px;
+
+
+}
+section{
+    background: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+
+}
+h1{
+    text-align: center;
+
+}
+section div{
+    padding: 4px;
+}
+.bill{
+   display: flex;
+}
+.bill label{
+    flex: 1;
+}
+.bill input{
+    flex: 3;
+}
+input[type="number"]{
+    background: rgb(167, 161, 161);
+}
+.space-between{
+    display: flex;
+    justify-content: space-between;
+}
+.range{
+    <label for="customRange2" class="form-label">Example range</label>
+    <input type="range" class="form-range" min="0" max="5" id="customRange2">
+}
